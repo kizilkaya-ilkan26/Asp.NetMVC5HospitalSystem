@@ -14,6 +14,12 @@
     <EntitySetMapping Name="DEPO">
       <EntityTypeMapping TypeName="DBHospitalModel.DEPO">
         <MappingFragment StoreEntitySet="DEPO">
+          <ScalarProperty Name="yanetki" ColumnName="yanetki" />
+          <ScalarProperty Name="depotürü" ColumnName="depotürü" />
+          <ScalarProperty Name="türü" ColumnName="türü" />
+          <ScalarProperty Name="rapor" ColumnName="rapor" />
+          <ScalarProperty Name="css" ColumnName="css" />
+          <ScalarProperty Name="sut" ColumnName="sut" />
           <ScalarProperty Name="URUNACIKLAMASI" ColumnName="URUNACIKLAMASI" />
           <ScalarProperty Name="URUNADI" ColumnName="URUNADI" />
           <ScalarProperty Name="STOK" ColumnName="STOK" />
@@ -45,6 +51,7 @@
     <EntitySetMapping Name="Mesaj">
       <EntityTypeMapping TypeName="DBHospitalModel.Mesaj">
         <MappingFragment StoreEntitySet="Mesaj">
+          <ScalarProperty Name="istek" ColumnName="istek" />
           <ScalarProperty Name="Sonuc" ColumnName="Sonuc" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HASTA" ColumnName="HASTA" />
@@ -60,6 +67,18 @@
     <EntitySetMapping Name="Patient">
       <EntityTypeMapping TypeName="DBHospitalModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="KayitlanmaTarihi" ColumnName="KayitlanmaTarihi" />
+          <ScalarProperty Name="sigorta" ColumnName="sigorta" />
+          <ScalarProperty Name="uyruk" ColumnName="uyruk" />
+          <ScalarProperty Name="adresilcesi" ColumnName="adresilcesi" />
+          <ScalarProperty Name="adresili" ColumnName="adresili" />
+          <ScalarProperty Name="anne" ColumnName="anne" />
+          <ScalarProperty Name="baba" ColumnName="baba" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Dogumyeri" ColumnName="Dogumyeri" />
+          <ScalarProperty Name="Kangrubu" ColumnName="Kangrubu" />
+          <ScalarProperty Name="MedeniHali" ColumnName="MedeniHali" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
           <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
@@ -78,6 +97,10 @@
     <EntitySetMapping Name="RECETE">
       <EntityTypeMapping TypeName="DBHospitalModel.RECETE">
         <MappingFragment StoreEntitySet="RECETE">
+          <ScalarProperty Name="ödeme" ColumnName="ödeme" />
+          <ScalarProperty Name="etken" ColumnName="etken" />
+          <ScalarProperty Name="bankod" ColumnName="bankod" />
+          <ScalarProperty Name="tür" ColumnName="tür" />
           <ScalarProperty Name="HASTATC" ColumnName="HASTATC" />
           <ScalarProperty Name="MAİLADRES" ColumnName="MAİLADRES" />
           <ScalarProperty Name="HASTA" ColumnName="HASTA" />
@@ -89,20 +112,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="DBHospitalModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DBHospitalModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="Uyruk" ColumnName="Uyruk" />
+          <ScalarProperty Name="DokUzmanlıkKodu" ColumnName="DokUzmanlıkKodu" />
+          <ScalarProperty Name="DiplomaTescilTarihi" ColumnName="DiplomaTescilTarihi" />
+          <ScalarProperty Name="DiplomaTarihi" ColumnName="DiplomaTarihi" />
+          <ScalarProperty Name="DiplomaNo" ColumnName="DiplomaNo" />
+          <ScalarProperty Name="DocTescilNo" ColumnName="DocTescilNo" />
+          <ScalarProperty Name="ResmiSicilNo" ColumnName="ResmiSicilNo" />
+          <ScalarProperty Name="SicilNo" ColumnName="SicilNo" />
           <ScalarProperty Name="TİP" ColumnName="TİP" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
@@ -207,6 +229,31 @@
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="IDCalendar" ColumnName="IDCalendar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBHospitalModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SekreterRandavu">
+      <EntityTypeMapping TypeName="DBHospitalModel.SekreterRandavu">
+        <MappingFragment StoreEntitySet="SekreterRandavu">
+          <ScalarProperty Name="SAAT" ColumnName="SAAT" />
+          <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+          <ScalarProperty Name="DOKTOR" ColumnName="DOKTOR" />
+          <ScalarProperty Name="BÖLÜM" ColumnName="BÖLÜM" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,35 @@
+﻿@model Hospital.Models.Entity.SekreterRandavu
+@{
+    ViewBag.Title = "RandavuGetir";
+    Layout = "~/Views/Shared/Sekreter.cshtml";
+}
+@using (Html.BeginForm("RandavuDüzenle", "SekreterRandavu", FormMethod.Post))
+{
+    <form class="u-form-group" method="post">
+        <div style="padding-left:80px;padding-top:20px">
+
+            @Html.HiddenFor(t => t.ID, new { @class = "form-control" })
+
+            @Html.Label("AD".ToString())
+            @Html.TextAreaFor(t => t.AD, new { @class = "form-control" })
+            @Html.Label("SOYAD".ToString())
+            @Html.TextAreaFor(t => t.SOYAD, new { @class = "form-control" })
+            @Html.Label("BÖLÜM".ToString())
+            @Html.TextAreaFor(t => t.BÖLÜM, new { @class = "form-control" })
+            @Html.Label("DOKTOR".ToString())
+            @Html.TextAreaFor(t => t.DOKTOR, new { @class = "form-control" })
+            @Html.Label("TC".ToString())
+            @Html.TextAreaFor(t => t.TC, new { @class = "form-control" })
+            @Html.Label("TARİH".ToString())
+            @Html.TextAreaFor(t => t.TARİH, new { @class = "form-control" })
+            @Html.Label("SAAT".ToString())
+            @Html.TextAreaFor(t => t.SAAT, new { @class = "form-control" })
+            <div style="padding-top:10px"></div>
+            <button class="btn btn-info" id="Btn">
+                Randavu Düzenle
+            </button>
+        </div>
+
+    </form>
+}
+

@@ -37,6 +37,12 @@
     <Property Name="URUNADI" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="URUNACIKLAMASI" Type="nvarchar(max)" />
     <Property Name="STOK" Type="int" Nullable="false" />
+    <Property Name="sut" Type="varchar(max)" Nullable="false" />
+    <Property Name="css" Type="varchar(max)" Nullable="false" />
+    <Property Name="rapor" Type="varchar(max)" Nullable="false" />
+    <Property Name="türü" Type="varchar(max)" Nullable="false" />
+    <Property Name="depotürü" Type="varchar(max)" Nullable="false" />
+    <Property Name="yanetki" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="DURUM">
     <Key>
@@ -73,10 +79,11 @@
     <Property Name="GÖNDEREN" Type="varchar" MaxLength="50" />
     <Property Name="ALICI" Type="varchar" MaxLength="50" />
     <Property Name="KONU" Type="varchar" MaxLength="50" />
-    <Property Name="TARIH" Type="smalldatetime" />
+    <Property Name="TARIH" Type="datetime" />
     <Property Name="MESAJ" Type="varchar" MaxLength="250" />
     <Property Name="ISLEM" Type="varchar(max)" />
     <Property Name="Sonuc" Type="varchar(max)" />
+    <Property Name="istek" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Patient">
     <Key>
@@ -93,7 +100,19 @@
     <Property Name="TELNO" Type="varchar(max)" Nullable="false" />
     <Property Name="RANDAVUTARIHIGUN" Type="date" />
     <Property Name="RANDAVUTARIHISAAT" Type="time" Precision="7" />
-    <Property Name="MuayeneSonucu" Type="int" />
+    <Property Name="MuayeneSonucu" Type="int" Nullable="false" />
+    <Property Name="Cinsiyet" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MedeniHali" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kangrubu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dogumyeri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DogumTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="baba" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="anne" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="adresili" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="adresilcesi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="uyruk" Type="varchar(max)" Nullable="false" />
+    <Property Name="sigorta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KayitlanmaTarihi" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="RECETE">
     <Key>
@@ -107,6 +126,23 @@
     <Property Name="HASTA" Type="varchar(max)" Nullable="false" />
     <Property Name="MAİLADRES" Type="varchar(max)" Nullable="false" />
     <Property Name="HASTATC" Type="varchar(max)" Nullable="false" />
+    <Property Name="tür" Type="varchar(max)" Nullable="false" />
+    <Property Name="bankod" Type="varchar(max)" Nullable="false" />
+    <Property Name="etken" Type="varchar(max)" Nullable="false" />
+    <Property Name="ödeme" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SekreterRandavu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar(max)" Nullable="false" />
+    <Property Name="SOYAD" Type="varchar(max)" Nullable="false" />
+    <Property Name="TC" Type="varchar(max)" Nullable="false" />
+    <Property Name="BÖLÜM" Type="varchar(max)" Nullable="false" />
+    <Property Name="DOKTOR" Type="varchar(max)" Nullable="false" />
+    <Property Name="TARİH" Type="datetime" Nullable="false" />
+    <Property Name="SAAT" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -152,6 +188,16 @@
     <Property Name="TCNO" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ADRES" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TİP" Type="tinyint" />
+    <Property Name="SicilNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ResmiSicilNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocTescilNo" Type="varchar(max)" />
+    <Property Name="DiplomaNo" Type="varchar(max)" Nullable="false" />
+    <Property Name="DiplomaTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiplomaTescilTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DokUzmanlıkKodu" Type="varchar" MaxLength="50" />
+    <Property Name="Uyruk" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cinsiyet" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unvan" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="USERTIP">
     <Key>
@@ -211,6 +257,7 @@
     <EntitySet Name="Mesaj" EntityType="Self.Mesaj" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RECETE" EntityType="Self.RECETE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SekreterRandavu" EntityType="Self.SekreterRandavu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tCalendar" EntityType="Self.tCalendar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UrunList" EntityType="Self.UrunList" Schema="dbo" store:Type="Tables" />

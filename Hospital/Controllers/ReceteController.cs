@@ -30,10 +30,13 @@ namespace Hospital.Controllers
         {
             RECETE kayit = db.RECETE.Where(t => t.ID == id).SingleOrDefault();
 
+
+
+
             return View("ReceteleriGetir",kayit);
         }
 
-        public ActionResult ReceteDüzenle(RECETE p)
+        public ActionResult ReceteDüzenle(RECETE p,string name)
         {
             RECETE kayit = db.RECETE.Where(t => t.ID == p.ID).SingleOrDefault();
 
@@ -45,7 +48,14 @@ namespace Hospital.Controllers
             kayit.HASTATC = p.HASTATC;
             kayit.TARIH = p.TARIH;
 
+            kayit.tür = p.tür;
+            kayit.bankod = p.bankod;
+            kayit.etken = p.etken;
+            kayit.ödeme = p.ödeme;
+
             db.SaveChanges();
+            ViewBag.Message = string.Format("Recete Düzenleme Basarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
             return RedirectToAction("Index");
 
         }
@@ -55,7 +65,9 @@ namespace Hospital.Controllers
         [HttpGet]
         public ActionResult ReceteYaz()
         {
-            List<SelectListItem> deger3 = (from r in db.Patient.ToList()
+           
+
+            List <SelectListItem> deger3 = (from r in db.Patient.ToList()
                                            select new SelectListItem
                                            {
                                                Text = r.AD +" "+ r.SOYAD,
@@ -65,11 +77,22 @@ namespace Hospital.Controllers
             ViewBag.dgr3 = deger3;
 
 
+            List<SelectListItem> deger4 = (from r in db.DEPO.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = r.URUNADI,
+                                               Value = r.URUNADI.ToString()
+
+                                           }).ToList();
+            ViewBag.dgr4 = deger4;
+
+
+
             return View();
 
         }
         [HttpPost]
-        public ActionResult ReceteYaz(RECETE p)
+        public ActionResult ReceteYaz(RECETE p,string name)
         {
 
             List<SelectListItem> deger3 = (from r in db.Patient.ToList()
@@ -79,7 +102,18 @@ namespace Hospital.Controllers
                                                Value = r.AD.ToString()
 
                                            }).ToList();
-            ViewBag.dgr3 = deger3; 
+            ViewBag.dgr3 = deger3;
+
+            List<SelectListItem> deger4 = (from r in db.DEPO.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = r.URUNADI,
+                                               Value = r.URUNADI.ToString()
+
+                                           }).ToList();
+            ViewBag.dgr4 = deger4;
+
+
 
             var adres = Session["ADRES"].ToString();
 
@@ -101,6 +135,8 @@ namespace Hospital.Controllers
 
             db.RECETE.Add(p);
             db.SaveChanges();
+
+            ViewBag.Message = string.Format("Recete sisteme Basarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
 
             return View();
 

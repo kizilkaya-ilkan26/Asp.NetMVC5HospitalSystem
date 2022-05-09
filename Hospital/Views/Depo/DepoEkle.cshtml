@@ -1,4 +1,4 @@
-﻿@model Hospital.Models.Entity.DEPO 
+﻿@model Hospital.Models.Entity.DEPO
 @{
     ViewBag.Title = "DepoEkle";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -12,6 +12,75 @@
         @Html.DropDownListFor(p => p.URUNADI, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
         <label>Ürün Açıklaması</label>
         @Html.TextBoxFor(p => p.URUNACIKLAMASI, new { @class = "form-control" })
+        <label>Depo Türü</label>
+        @Html.DropDownList("depotürü",
+                                                 new List<SelectListItem> {
+                                                 new SelectListItem {
+                                                   Text="Eczane Depo",
+                                                   Value="Eczane Depo",
+                                                 },
+                                                   new SelectListItem {
+                                                    Text="Tıbbi Depo",
+                                                     Value="Tıbbi Depo",
+
+                                                    },
+                                                     new SelectListItem {
+                                                    Text="Ameliyet Depo",
+                                                     Value="Ameliyet Depo",
+
+                                                    },
+
+
+                               }, new { @class = "form-control" })
+        <span></span>
+        <label>Yan Etkisi</label>
+        @Html.TextBoxFor(p => p.yanetki, new { @class = "form-control" })
+        <label>Sut kodu</label>
+        @Html.TextBoxFor(p => p.sut, new { @class = "form-control" })
+        <label>Rapor Durumu</label>
+        @Html.DropDownList("rapor",
+                                                  new List<SelectListItem> {
+                                                  new SelectListItem {
+                                                    Text="SGK",
+                                                    Value="SGK",
+                                                  },
+                                                    new SelectListItem {
+                                                     Text="BAGKUR",
+                                                      Value="BAGKUR",
+
+                                                     },
+                                                      new SelectListItem {
+                                                     Text="YOK",
+                                                      Value="YOK",
+
+                                                     },
+
+
+                                }, new { @class = "form-control" })
+        <span></span>
+        <label>Rapor TÜRÜ</label>
+        @Html.DropDownList("türü",
+                                                  new List<SelectListItem> {
+                                                  new SelectListItem {
+                                                    Text="YEŞİL",
+                                                    Value="YEŞİL",
+                                                  },
+                                                    new SelectListItem {
+                                                     Text="KIRMIZI",
+                                                      Value="KIRMIZI",
+
+                                                     },
+                                                      new SelectListItem {
+                                                     Text="NORMAL",
+                                                      Value="NORMAL",
+
+                                                     },
+
+
+                                }, new { @class = "form-control" })
+        <span></span>
+        <label>Css Çarpanı</label>
+        @Html.TextBoxFor(p => p.css, new { @class = "form-control" })
         <label>Stok</label>
         @Html.TextBoxFor(p => p.STOK, new { @class = "form-control" })
 
@@ -22,4 +91,12 @@
     </div>
 
 </form>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}
 

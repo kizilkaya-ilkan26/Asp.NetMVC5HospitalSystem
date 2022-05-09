@@ -24,8 +24,13 @@
             <th>ID</th>
             <th>URUN ADI</th>
             <th>URUN AÇIKLAMASI</th>
+            <th>Depo Türü</th>
+            <th>Yan Etkisi</th>
+            <th>Sut kodu</th>
+            <th>Rapor</th>
+            <th>Css</th>
+            <th>Rapor Türü</th>
             <th>STOK</th>
-            <th>ISLEMLER</th>
         </tr>
 
         @foreach (var ktg in Model)
@@ -34,6 +39,12 @@
         <td>@ktg.ID</td>
         <td>@ktg.URUNADI</td>
         <td>@ktg.URUNACIKLAMASI</td>
+        <td>@ktg.depotürü</td>
+        <td>@ktg.yanetki</td>
+        <td>@ktg.sut</td>
+        <td>@ktg.rapor</td>
+        <td>@ktg.css</td>
+        <td>@ktg.türü</td>
         <td>@ktg.STOK</td>
 
         <td align="center">

@@ -129,13 +129,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminRandavulariGörController.cs" />
+    <Compile Include="Controllers\AdminSekreterGörüntüleController.cs" />
+    <Compile Include="Controllers\AdminSekreterRandavuController.cs" />
+    <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\DoctorRandavulariGörController.cs" />
     <Compile Include="Controllers\DoktorGörüntüleController.cs" />
+    <Compile Include="Controllers\DoktorMesajYollaController.cs" />
+    <Compile Include="Controllers\HakkimizdaController.cs" />
     <Compile Include="Controllers\HastaKayitController.cs" />
     <Compile Include="Controllers\HastaMesajKutusuController.cs" />
     <Compile Include="Controllers\HastaReceteController.cs" />
+    <Compile Include="Controllers\LabMesajController.cs" />
+    <Compile Include="Controllers\SekreterAyarlarController.cs" />
+    <Compile Include="Controllers\SekreterController.cs" />
+    <Compile Include="Controllers\SekreterMesajYollaController.cs" />
+    <Compile Include="Controllers\SekreterRandavuController.cs" />
+    <Compile Include="Controllers\SekreterRandavuGörüntüleController.cs" />
     <Compile Include="Controllers\SiteSettingController.cs" />
     <Compile Include="Models\CalendarEvent.cs" />
     <Compile Include="Models\DataPoint.cs" />
@@ -159,6 +170,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DBConnection.cs" />
+    <Compile Include="Models\deney.cs" />
     <Compile Include="Models\Entity\Admin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -203,6 +215,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\RECETE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\SekreterRandavu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\sp_helpdiagramdefinition_Result.cs">
@@ -532,9 +547,39 @@
     <Content Include="Views\DoctorRandavulariGör\Index.cshtml" />
     <Content Include="Views\HastaKayit\Index.cshtml" />
     <Content Include="Views\HastaKayit\Kayit.cshtml" />
+    <Content Include="Views\Hakkimizda\Index.cshtml" />
+    <Content Include="Views\Birim\Index.cshtml" />
+    <Content Include="Views\Shared\Sekreter.cshtml" />
+    <Content Include="Views\Sekreter\Index.cshtml" />
+    <Content Include="Views\Sekreter\LogOut.cshtml" />
+    <Content Include="Views\SekreterRandavuGörüntüle\RandavuSil.cshtml" />
+    <Content Include="Views\SekreterRandavuGörüntüle\Index.cshtml" />
+    <Content Include="Views\AdminSekreterGörüntüle\Index.cshtml" />
+    <Content Include="Views\AdminSekreterGörüntüle\RandavuSil.cshtml" />
+    <Content Include="Views\DoktorMesajYolla\DoktorMesaj.cshtml" />
+    <Content Include="Views\SekreterMesajYolla\SekreterMesaj.cshtml" />
+    <Content Include="Views\DoktorMesajYolla\YeniMesaj.cshtml" />
+    <Content Include="Views\SekreterMesajYolla\YeniMesaj.cshtml" />
+    <Content Include="Views\DoktorMesajYolla\MesajGetir.cshtml" />
+    <Content Include="Views\SekreterMesajYolla\MesajGetir.cshtml" />
+    <Content Include="Views\SekreterMesajYolla\MesajSil.cshtml" />
+    <Content Include="Views\DoktorMesajYolla\MesajSil.cshtml" />
+    <Content Include="Views\SekreterAyarlar\AyarGetir.cshtml" />
+    <Content Include="Views\SekreterAyarlar\Index.cshtml" />
+    <Content Include="Views\LabMesaj\LabMesaj.cshtml" />
+    <Content Include="Views\LabMesaj\YeniMesaj.cshtml" />
+    <Content Include="Views\LabMesaj\MesajSil.cshtml" />
+    <Content Include="Views\LabMesaj\MesajGetir.cshtml" />
+    <Content Include="Views\SekreterRandavu\RandavuAl.cshtml" />
+    <Content Include="Views\SekreterRandavu\SekreterRandavuAl.cshtml" />
+    <Content Include="Views\SekreterRandavu\RandavuSil.cshtml" />
+    <Content Include="Views\SekreterRandavu\RandavuGetir.cshtml" />
+    <Content Include="Views\AdminSekreterRandavu\Index.cshtml" />
+    <Content Include="Views\AdminSekreterRandavu\RandavuSil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\images\" />
     <Folder Include="Views\info\" />
   </ItemGroup>
   <ItemGroup>

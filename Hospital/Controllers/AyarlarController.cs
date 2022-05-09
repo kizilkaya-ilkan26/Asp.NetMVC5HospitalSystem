@@ -28,17 +28,30 @@ namespace Hospital.Controllers
         }
 
  
-        public ActionResult AyarDüzenle(Users bilgi)
+        public ActionResult AyarDüzenle(Users bilgi,string name)
         {
             Users kayit = db.Users.Where(t => t.ID == bilgi.ID).SingleOrDefault();
 
             kayit.ID = bilgi.ID;
+            kayit.AD = bilgi.AD;
             kayit.SOYAD = bilgi.SOYAD;
             kayit.ANAHTAR = bilgi.ANAHTAR;
             kayit.ADRES = bilgi.ADRES;
             kayit.TELNO = bilgi.TELNO;
+            kayit.Cinsiyet = bilgi.Cinsiyet;
+            kayit.Uyruk = bilgi.Uyruk;
+            kayit.DiplomaNo = bilgi.DiplomaNo;
+            kayit.DiplomaTarihi = bilgi.DiplomaTarihi;
+            kayit.DiplomaTescilTarihi = bilgi.DiplomaTescilTarihi;
+            kayit.SicilNo = bilgi.SicilNo;
+            kayit.ResmiSicilNo = bilgi.ResmiSicilNo;
+            kayit.DocTescilNo = bilgi.DocTescilNo;
+            kayit.DokUzmanlıkKodu = bilgi.DokUzmanlıkKodu;
+            kayit.Unvan = bilgi.Unvan;
 
             db.SaveChanges();
+
+            ViewBag.Message = string.Format("Ayarlar Basarılı bir sekilde kayıt edildi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
 
             return RedirectToAction("Index");
         }

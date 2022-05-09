@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Hospital.Models;
 using Hospital.Models.Entity;
+
 
 namespace Hospital.Controllers
 {
@@ -14,32 +17,41 @@ namespace Hospital.Controllers
 
         // GET: Lab
         [Authorize]
+       
         public ActionResult Index()
         {
+            
             var adres = Session["ADRES"].ToString();
             var adresDateCek = db.Users.Where(x => x.ADRES == adres.ToString()).ToList();
 
             return View(adresDateCek);
         }
-        public ActionResult LogOut()
+        public ActionResult LogOut(string name)
         {
             FormsAuthentication.SignOut();
+            ViewBag.Message = string.Format("Sistemden Başarılı Bir Şekilde Cıkıs Saglandı. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
             return RedirectToAction("Index", "Login");
         }
 
 
         public ActionResult TestAnasayfa()
         {
+    
+            
             var adresx = Session["ADRES"].ToString();
             var adresDateCekx = db.Mesaj.Where(x => x.ALICI == adresx.ToString()).ToList();
 
+
             return View(adresDateCekx);
+        
         }
 
 
         public ActionResult TestGetir(int id)
         {
             Mesaj kayit = db.Mesaj.Where(x => x.ID == id).SingleOrDefault();
+
+           
 
             return View("TestGetir",kayit);
         }
@@ -59,13 +71,29 @@ namespace Hospital.Controllers
 
 
         [HttpPost]
-        public ActionResult TestDüzenle(Mesaj p)
+        public ActionResult TestDüzenle(Mesaj p,string name)
         {
             Mesaj kayit = db.Mesaj.Where(t => t.ID == p.ID).SingleOrDefault();
 
-            kayit.ISLEM = p.ISLEM;
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+               
+                string yol = "~/Views/images/" + dosyaadi;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                p.Sonuc = "/Views/images/" + dosyaadi ;
+            }
+
             kayit.Sonuc = p.Sonuc;
+            p.ISLEM = "Rapor Hazırlandı.";
+            kayit.ISLEM = p.ISLEM;
+            DateTime tarihx = DateTime.Now;
+            p.TARIH = tarihx;
+            kayit.Sonuc = p.Sonuc;
+            db.Mesaj.Add(p);
             db.SaveChanges();
+            ViewBag.Message = string.Format("Sisteme Başarılı Bir Şekilde Düzenlenme Saglandı. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
             return RedirectToAction("Index");
         }
 

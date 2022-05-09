@@ -65,21 +65,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="fields-grid">
                             <div class="styled-input agile-styled-input-top">
                                 <div style="color:white">
-                                    <p>AD</p>
+                                    <p>AD *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.AD, new { @class = "form-control" })
                                 <span></span>
                             </div>
                             <div class="styled-input agile-styled-input-top">
                                 <div style="color:white">
-                                    <p>SOYAD</p>
+                                    <p>SOYAD *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.SOYAD, new { @class = "form-control" })
                                 <span></span>
                             </div>
                             <div class="styled-input agile-styled-input-top">
                                 <div style="color:white">
-                                    <p>TC NO</p>
+                                    <p>TC NO *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.TCNO, new { @class = "form-control" })
                                 <span></span>
@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="styled-input agile-styled-input-top">
 
                                 <div style="color:white">
-                                    <p>SİFRE</p>
+                                    <p>SİFRE *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.Anahtar, new { @class = "form-control" })
                                 <span></span>
@@ -100,23 +100,204 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="styled-input agile-styled-input-top">
                                 <div style="color:white">
-                                    <p>MAİL ADRESİ</p>
+                                    <p>MAİL ADRESİ *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.MAILADRESI, new { @class = "form-control" })
                                 <span></span>
                             </div>
                             <div class="styled-input agile-styled-input-top">
                                 <div style="color:white">
-                                    <p>ADRES</p>
+                                    <p>ADRES *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.ADRES, new { @class = "form-control" })
                                 <span></span>
                             </div>
                             <div class="styled-input agile-styled-input-top">
                                 <div style="color:white">
-                                    <p>TEL NO</p>
+                                    <p>TEL NO *</p>
                                 </div>
                                 @Html.TextBoxFor(t => t.TELNO, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+                                <div style="color:white">
+                                    <p>Cinsiyet *</p>
+                                </div>
+                                @Html.DropDownList("Cinsiyet",
+                                       new List<SelectListItem> {
+                                       new SelectListItem {
+                                         Text="ERKEK",
+                                         Value="ERKEK",
+                                       },
+                                         new SelectListItem {
+                                          Text="KIZ",
+                                           Value="KIZ",
+
+                                          },
+
+                     }, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+                                <div style="color:white">
+                                    <p>Medeni Durumu *</p>
+                                </div>
+                                @Html.DropDownList("MedeniHali",
+                                       new List<SelectListItem> {
+                                       new SelectListItem {
+                                         Text="EVLİ",
+                                         Value="EVLİ",
+                                       },
+                                         new SelectListItem {
+                                          Text="BEKAR",
+                                           Value="BEKAR",
+
+                                          },
+
+                     }, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+                                <div style="color:white">
+                                    <p>KAN GRUBU *</p>
+                                </div>
+                                @Html.DropDownList("Kangrubu",
+                                       new List<SelectListItem> {
+                                       new SelectListItem {
+                                         Text="A+",
+                                         Value="A+",
+                                       },
+                                         new SelectListItem {
+                                          Text="B+",
+                                           Value="B+",
+
+                                          },
+
+                                         new SelectListItem
+                                         {
+                                             Text = "AB+",
+                                             Value = "AB+",
+
+                                         },
+                                         new SelectListItem
+                                         {
+                                             Text = "0+",
+                                             Value = "0+",
+
+                                         },
+                                         new SelectListItem
+                                         {
+                                             Text = "0-",
+                                             Value = "0-",
+
+                                         },
+                                         new SelectListItem
+                                         {
+                                             Text = "A-",
+                                             Value = "A-",
+
+                                         },
+                                         new SelectListItem
+                                         {
+                                             Text = "B-",
+                                             Value = "B-",
+
+                                         },
+                                         new SelectListItem
+                                         {
+                                             Text = "AB-",
+                                             Value = "AB-",
+
+                                         },
+
+                     }, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+                                <div style="color:white">
+                                    <p>Dogum Tarihi *</p>
+                                </div>
+                                @Html.TextBoxFor(t => t.DogumTarihi, "{0:yyyy-MM-dd}", new { type = "date" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>Dogum Yeri *</p>
+                                </div>
+                                @Html.TextBoxFor(t => t.Dogumyeri, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>ANNE ADI *</p>
+                                </div>
+                                @Html.TextBoxFor(t => t.anne, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>BABA ADI *</p>
+                                </div>
+                                @Html.TextBoxFor(t => t.baba, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>ADRES İLİ *</p>
+                                </div>
+                                @Html.TextBoxFor(t => t.adresili, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>ADRES İLÇESİ *</p>
+                                </div>
+                                @Html.TextBoxFor(t => t.adresilcesi, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>UYRUK *</p>
+                                </div>
+                                @Html.DropDownList("uyruk",
+                                      new List<SelectListItem> {
+                                      new SelectListItem {
+                                        Text="TC",
+                                        Value="TC",
+                                      },
+                                        new SelectListItem {
+                                         Text="YABANCI",
+                                          Value="YABANCI",
+
+                                         },
+
+                    }, new { @class = "form-control" })
+                                <span></span>
+                            </div>
+                            <div class="styled-input agile-styled-input-top">
+
+                                <div style="color:white">
+                                    <p>SİGORTA</p>
+                                </div>
+                                @Html.DropDownList("sigorta",
+                                      new List<SelectListItem> {
+                                      new SelectListItem {
+                                        Text="SSK",
+                                        Value="SSK",
+                                      },
+                                        new SelectListItem {
+                                         Text="BAGKUR",
+                                          Value="BAGKUR",
+
+                                         },
+
+                    }, new { @class = "form-control" })
                                 <span></span>
                             </div>
                             <div class="clear"> </div>
@@ -124,6 +305,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <input type="submit" value="Kayit">
                     </form>
+
+                    @if (ViewBag.Message != null)
+                    {
+                        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+                        </script>
+                    }
+
                 </div>
             </div>
             <div class="clear"> </div>

@@ -47,10 +47,11 @@ namespace Hospital.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult PersonelEkle(Users p)
+        public ActionResult PersonelEkle(Users p, string name)
         {
             PersonelListele.Users.Add(p);
             PersonelListele.SaveChanges();
+            ViewBag.Message = string.Format("Personel Düzenleme Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
             return View();
         }
         public ActionResult PersonelSil(int id)
@@ -92,6 +93,7 @@ namespace Hospital.Controllers
             kayit.ID = p.ID;
             kayit.AD = p.AD;
             kayit.SOYAD = p.SOYAD;
+            kayit.Unvan = p.Unvan;
             kayit.BÖLÜM = p.BÖLÜM;
             kayit.YETKİDERECE = p.YETKİDERECE;
             kayit.ANAHTAR = p.ANAHTAR;
@@ -101,6 +103,8 @@ namespace Hospital.Controllers
             kayit.ADRES = p.ADRES;
 
             PersonelListele.SaveChanges();
+
+
             return RedirectToAction("Index");
         }
     }

@@ -25,5 +25,15 @@ namespace Hospital.Models.Entity
         public string TCNO { get; set; }
         public string ADRES { get; set; }
         public Nullable<byte> TİP { get; set; }
+        public string SicilNo { get; set; }
+        public string ResmiSicilNo { get; set; }
+        public string DocTescilNo { get; set; }
+        public string DiplomaNo { get; set; }
+        public string DiplomaTarihi { get; set; }
+        public string DiplomaTescilTarihi { get; set; }
+        public string DokUzmanlıkKodu { get; set; }
+        public string Uyruk { get; set; }
+        public string Cinsiyet { get; set; }
+        public string Unvan { get; set; }
     }
 }

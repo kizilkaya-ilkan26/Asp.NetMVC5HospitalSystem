@@ -7,16 +7,70 @@ Layout = "~/Views/Shared/Doctor.cshtml";
 <form class="u-form-group" method="post">
     <div style="padding-left:80px;padding-top:20px">
 
-        @Html.HiddenFor(t => t.ID)
-        <label>İLAÇ</label>
-        @Html.TextAreaFor(t => t.ILAC, new { @class = "form-control" })
         <label>HASTA</label>
         @Html.DropDownListFor(t => t.HASTA, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
         <label>HASTA TC</label>
         @Html.TextBoxFor(t => t.HASTATC, new { @class = "form-control" })
-        <label>MAİL ADRES</label>
+        @Html.HiddenFor(t => t.ID)
+        <label>İLAÇ Listesi</label>
+        @Html.DropDownListFor(t => t.ILAC, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control" })
+        <label>İlacın Bankod Numarası</label>
+        @Html.TextBoxFor(t => t.bankod, new { @class = "form-control" })
+        <label>İlacın Etken Maddesi</label>
+        @Html.TextBoxFor(t => t.etken, new { @class = "form-control" })
+        <label>İlacın Reçete Türü</label>
+        @Html.DropDownList("tür",
+                                          new List<SelectListItem> {
+                                          new SelectListItem {
+                                            Text="YEŞİL",
+                                            Value="YEŞİL",
+                                          },
+                                            new SelectListItem {
+                                             Text="KIRMIZI",
+                                              Value="KIRMIZI",
+
+                                             },
+                                              new SelectListItem {
+                                             Text="NORMAL",
+                                              Value="NORMAL",
+
+                                             },
+
+
+                        }, new { @class = "form-control" })
+        <span></span>
+        <label>İlacın Ödeme Türü</label>
+        @Html.DropDownList("ödeme",
+                                           new List<SelectListItem> {
+                                           new SelectListItem {
+                                             Text="SGK",
+                                             Value="SGK",
+                                           },
+                                             new SelectListItem {
+                                              Text="BAGKUR",
+                                               Value="BAGKUR",
+
+                                              },
+                                               new SelectListItem {
+                                              Text="ÖDEME YOK",
+                                               Value="ÖDEME YOK",
+
+                                              },
+
+
+                         }, new { @class = "form-control" })
+        <span></span>
+        <label>Hasta MAİL ADRES</label>
         @Html.TextBoxFor(t => t.MAİLADRES, new { @class = "form-control" })
 
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+        }
         <div style="padding-top:10px"></div>
         <button class="btn btn-info" id="Btn">
             Reçete Ekle

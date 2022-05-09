@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<form class= "u-form-group" method="post">
+<form class="u-form-group" method="post">
     <div style="padding-left:80px;padding-top:20px">
         <label>Bölüm Adı</label>
         <input type="text" class="form-control" name="BölümAdi" />
@@ -17,6 +17,15 @@
             Bölüm Ekle
         </button>
     </div>
-   
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+
 </form>
 

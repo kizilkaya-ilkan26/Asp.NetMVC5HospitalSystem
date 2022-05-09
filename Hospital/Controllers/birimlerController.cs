@@ -18,8 +18,11 @@ namespace Hospital.Controllers
             return View(birimlerList);
         }
         [HttpGet]
-        public ActionResult BirimEkle()
+        public ActionResult BirimEkle(string name)
         {
+            ViewBag.Message = string.Format("Birim Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
+
             return View();
         }
         [HttpPost]

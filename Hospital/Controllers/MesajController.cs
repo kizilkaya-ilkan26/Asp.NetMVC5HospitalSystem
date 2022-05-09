@@ -26,7 +26,7 @@ namespace Hospital.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult YeniMesaj(Mesaj t)
+        public ActionResult YeniMesaj(Mesaj t,string name)
         {
         
 
@@ -35,11 +35,13 @@ namespace Hospital.Controllers
             t.ALICI = "lab@lab";
             t.GÖNDEREN = adres.ToString();
             t.TARIH = DateTime.Parse(DateTime.Now.ToShortDateString());
-            t.ISLEM = "İşlem Beklemede";
+            t.ISLEM = "Rapor İsteniyor....";
             db.Mesaj.Add(t);
             db.SaveChanges();
+            ViewBag.Message = string.Format("Istem Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
 
-           
+
+
 
             return View();
         }

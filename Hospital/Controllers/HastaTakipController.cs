@@ -17,8 +17,11 @@ namespace Hospital.Controllers
             return View(Hasta);
         }
         [HttpGet]
-        public ActionResult HastaEkle()
+        public ActionResult HastaEkle(string name)
         {
+            ViewBag.Message = string.Format("Hasta Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
+
             return View();
         }
         [HttpPost]

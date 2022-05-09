@@ -65,58 +65,271 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="fields-grid">
                                 <div class="styled-input agile-styled-input-top">
                                     <div style="color:white">
-                                        <p>AD</p>
+                                        <p>AD *</p>
                                     </div>
                                     @Html.TextBoxFor(t => t.AD, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
                                     <div style="color:white">
-                                        <p>SOYAD</p>
+                                        <p>SOYAD *</p>
                                     </div>
                                     @Html.TextBoxFor(t => t.SOYAD, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
                                     <div style="color:white">
-                                        <p>BÖLÜM</p>
+                                        <p>Ünvan</p>
                                     </div>
-                                    @Html.TextBoxFor(t => t.BÖLÜM, new { @class = "form-control" })
+                                    @Html.TextBoxFor(t => t.Unvan, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Birim*</p>
+                                    </div>
+                                    @Html.DropDownList("Bölüm",
+                                           new List<SelectListItem> {
+                                           new SelectListItem {
+                                             Text="Acil Servis",
+                                             Value="Acil Servis",
+                                           },
+                                             new SelectListItem {
+                                              Text="Beslenme ve Diyet",
+                                               Value="Beslenme ve Diyet",
+
+                                              },
+
+                                             new SelectListItem
+                                             {
+                                                 Text = "Çocuk Sağlığı ve Hastalıkları",
+                                                 Value = "Çocuk Sağlığı ve Hastalıkları",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Genel Cerrahi",
+                                                 Value = "Genel Cerrahi",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Algoloji",
+                                                 Value = "Algoloji",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Çocuk Göğüs Hastalıkları",
+                                                 Value = "Çocuk Göğüs Hastalıkları",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Üroloji",
+                                                 Value = "Üroloji",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Patoloji",
+                                                 Value = "Patoloji",
+
+                                             },
+                                              new SelectListItem
+                                             {
+                                                 Text = "Göz Hastalıkları",
+                                                 Value = "Göz Hastalıkları",
+
+                                             },
+                                               new SelectListItem
+                                             {
+                                                 Text = "Kadın Hastalıkları ve Doğum",
+                                                 Value = "Kadın Hastalıkları ve Doğum",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Ortopedi ve Travmatoloji",
+                                                 Value = "Ortopedi ve Travmatoloji",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Anestezi ve Reanimasyon",
+                                                 Value = "Anestezi ve Reanimasyon",
+
+                                             },
+                                              new SelectListItem
+                                             {
+                                                 Text = "Labaratuvar Ekibi",
+                                                 Value = "Labaratuvar Ekibi",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Temizlik Görevlisi",
+                                                 Value = "Temizlik Görevlisi",
+
+                                             },
+                                             new SelectListItem
+                                             {
+                                                 Text = "Sekreter",
+                                                 Value = "Sekreter",
+
+                                             },
+                                               new SelectListItem
+                                             {
+                                                 Text = "Güvenlik",
+                                                 Value = "Güvenlik",
+
+                                             },
+                         }, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Görevi</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.GÖREVİ, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
 
                                     <div style="color:white">
-                                        <p>SİFRE</p>
+                                        <p>SİFRE *</p>
                                     </div>
                                     @Html.TextBoxFor(t => t.ANAHTAR, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
                                     <div style="color:white">
-                                        <p>TEL NO</p>
+                                        <p>Yetki * [1=Admin 2=Doktor 3=Lab Görevlisi 4=Sekreter]</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.YETKİDERECE, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>TEL NO *</p>
                                     </div>
                                     @Html.TextBoxFor(t => t.TELNO, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
                                     <div style="color:white">
-                                        <p>TC NO</p>
+                                        <p>TC NO *</p>
                                     </div>
                                     @Html.TextBoxFor(t => t.TCNO, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
                                     <div style="color:white">
-                                        <p>MAİL ADRESİ</p>
+                                        <p>MAİL ADRESİ *</p>
                                     </div>
                                     @Html.TextBoxFor(t => t.ADRES, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Sicil No *</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.SicilNo, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Resmi Sicil No *</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.ResmiSicilNo, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Doktor Tescil No</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.DocTescilNo, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Diploma No *</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.DiplomaNo, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Diploma Tarihi *</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.DiplomaTarihi, "{0:yyyy-MM-dd}", new { type = "date" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Diploma Tescil Tarihi *</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.DiplomaTescilTarihi, "{0:yyyy-MM-dd}", new { type = "date" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Doktor Uzmanlık kodu</p>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.DokUzmanlıkKodu, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Cinsiyet *</p>
+                                    </div>
+                                    @Html.DropDownList("Cinsiyet",
+                                           new List<SelectListItem> {
+                                           new SelectListItem {
+                                             Text="ERKEK",
+                                             Value="ERKEK",
+                                           },
+                                             new SelectListItem {
+                                              Text="KIZ",
+                                               Value="KIZ",
+
+                                              },
+
+                         }, new { @class = "form-control" })
+                                    <span></span>
+                                </div>
+                                <div class="styled-input agile-styled-input-top">
+                                    <div style="color:white">
+                                        <p>Uyruk *</p>
+                                    </div>
+                                    @Html.DropDownList("Uyruk",
+                                           new List<SelectListItem> {
+                                           new SelectListItem {
+                                             Text="TC",
+                                             Value="TC",
+                                           },
+                                             new SelectListItem {
+                                              Text="YABANCI",
+                                               Value="YABANCI",
+
+                                              },
+
+                         }, new { @class = "form-control" })
                                     <span></span>
                                 </div>
                                 <div class="clear"> </div>
                                 <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Sözleşmeyi<a href="#"> Okudum ve Kabul ediyorum.</a></label>
                             </div>
-                            <input type="submit" value="Kayit">
+                            <input id="btn1" type="submit" value="Kayit">
+                            @if (ViewBag.Message != null)
+                            {
+                                <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+                                </script>
+                            }
+
                         </form>
                     </div>
                 </div>

@@ -17,6 +17,12 @@
     <Property Name="STOK" Type="Int32" Nullable="false" />
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="URUNACIKLAMASI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sut" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="css" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rapor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="türü" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depotürü" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="yanetki" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="DURUM">
     <Key>
@@ -46,10 +52,11 @@
     <Property Name="GÖNDEREN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ALICI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TARIH" Type="DateTime" Precision="0" />
+    <Property Name="TARIH" Type="DateTime" Precision="3" />
     <Property Name="MESAJ1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="ISLEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Sonuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="istek" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Patient">
     <Key>
@@ -66,7 +73,19 @@
     <Property Name="TELNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="RANDAVUTARIHIGUN" Type="DateTime" Precision="0" />
     <Property Name="RANDAVUTARIHISAAT" Type="Time" Precision="7" />
-    <Property Name="MuayeneSonucu" Type="Int32" />
+    <Property Name="MuayeneSonucu" Type="Int32" Nullable="false" />
+    <Property Name="Cinsiyet" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MedeniHali" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Kangrubu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dogumyeri" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DogumTarihi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="baba" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="anne" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="adresili" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="adresilcesi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="uyruk" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sigorta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KayitlanmaTarihi" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="RECETE">
     <Key>
@@ -80,16 +99,10 @@
     <Property Name="HASTA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="MAİLADRES" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="HASTATC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="tür" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="bankod" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="etken" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ödeme" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -106,6 +119,16 @@
     <Property Name="TCNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TİP" Type="Byte" />
+    <Property Name="SicilNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ResmiSicilNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DocTescilNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DiplomaNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DiplomaTarihi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DiplomaTescilTarihi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DokUzmanlıkKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Uyruk" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cinsiyet" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Unvan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Yoklama">
     <Key>
@@ -124,7 +147,6 @@
     <EntitySet Name="Mesaj" EntityType="Self.Mesaj" />
     <EntitySet Name="Patient" EntityType="Self.Patient" />
     <EntitySet Name="RECETE" EntityType="Self.RECETE" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <EntitySet Name="Yoklama" EntityType="Self.Yoklama" />
     <FunctionImport Name="sp_alterdiagram">
@@ -163,6 +185,8 @@
     <EntitySet Name="BunlarıBiliyormusunuz" EntityType="DBHospitalModel.BunlarıBiliyormusunuz" />
     <EntitySet Name="Admin" EntityType="DBHospitalModel.Admin" />
     <EntitySet Name="tCalendar" EntityType="DBHospitalModel.tCalendar" />
+    <EntitySet Name="sysdiagrams" EntityType="DBHospitalModel.sysdiagrams" />
+    <EntitySet Name="SekreterRandavu" EntityType="DBHospitalModel.SekreterRandavu" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -227,5 +251,28 @@
     <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="AllDay" Type="Boolean" Nullable="false" />
     <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="SekreterRandavu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BÖLÜM" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOKTOR" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TARİH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SAAT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

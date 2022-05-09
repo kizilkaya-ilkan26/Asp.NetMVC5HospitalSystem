@@ -1,0 +1,132 @@
+﻿@model Hospital.Models.Entity.SekreterRandavu
+@{
+    ViewBag.Title = "RandavuAl";
+    Layout = "~/Views/Shared/Sekreter.cshtml";
+}
+
+<form class="u-form-group" method="post">
+    <div style="padding-left:90px;padding-top:20px">
+        @Html.HiddenFor(t => t.ID, new { @class = "form-control" })
+        @Html.Label("TC".ToString())
+        @Html.TextBoxFor(t => t.TC, new { @class = "form-control" })
+        @Html.Label("AD".ToString())
+        @Html.TextBoxFor(t => t.AD, new { @class = "form-control" })
+        @Html.Label("SOYAD".ToString())
+        @Html.TextBoxFor(t => t.SOYAD, new { @class = "form-control" })
+        @Html.Label("BİRİM".ToString())
+        @Html.DropDownList("BÖLÜM",
+                                          new List<SelectListItem> {
+                                          new SelectListItem {
+                                            Text="Acil Servis",
+                                            Value="Acil Servis",
+                                          },
+                                            new SelectListItem {
+                                             Text="Beslenme ve Diyet",
+                                              Value="Beslenme ve Diyet",
+
+                                             },
+
+                                            new SelectListItem
+                                            {
+                                                Text = "Çocuk Sağlığı ve Hastalıkları",
+                                                Value = "Çocuk Sağlığı ve Hastalıkları",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Genel Cerrahi",
+                                                Value = "Genel Cerrahi",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Algoloji",
+                                                Value = "Algoloji",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Çocuk Göğüs Hastalıkları",
+                                                Value = "Çocuk Göğüs Hastalıkları",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Üroloji",
+                                                Value = "Üroloji",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Patoloji",
+                                                Value = "Patoloji",
+
+                                            },                                     
+                                              new SelectListItem
+                                            {
+                                                Text = "Göz Hastalıkları",
+                                                Value = "Göz Hastalıkları",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Kadın Hastalıkları ve Doğum",
+                                                Value = "Kadın Hastalıkları ve Doğum",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Ortopedi ve Travmatoloji",
+                                                Value = "Ortopedi ve Travmatoloji",
+
+                                            },
+                                             new SelectListItem
+                                            {
+                                                Text = "Labaratuvar Ekibi",
+                                                Value = "Labaratuvar Ekibi",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Temizlik Görevlisi",
+                                                Value = "Temizlik Görevlisi",
+
+                                            },
+                                            new SelectListItem
+                                            {
+                                                Text = "Sekreter",
+                                                Value = "Sekreter",
+
+                                            },
+                                              new SelectListItem
+                                            {
+                                                Text = "Güvenlik",
+                                                Value = "Güvenlik",
+
+                                            },
+                        }, new { @class = "form-control" })
+        <span></span>
+        @Html.Label("DOKTOR".ToString())
+        @Html.DropDownListFor(t => t.DOKTOR, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+        @Html.Label("TARİH".ToString())
+        @Html.TextBoxFor(t => t.TARİH, "{0:yyyy-MM-dd}", new { type = "date" })
+        @Html.Label("SAAT".ToString())
+        @Html.TextBoxFor(t => t.SAAT, "HH:mm", new { type = "time" })
+
+        <div style="padding-top:10px"></div>
+        <button class="btn btn-info" id="Btn1">
+            Randavu Al
+        </button>
+
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+        }
+    </div>
+
+</form>
+

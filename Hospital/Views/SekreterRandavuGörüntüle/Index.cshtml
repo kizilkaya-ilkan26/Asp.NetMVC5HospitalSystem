@@ -1,0 +1,42 @@
+﻿@using Hospital.Models.Entity
+@model List<SekreterRandavu>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Sekreter.cshtml";
+}
+
+<div style="padding-left:120px;padding-top:20px">
+    <h2>Randavularımı Görüntüle</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Hasta AD</th>
+            <th>Hasta SOYAD</th>
+            <th>HASTA TC</th>
+            <th>BÖLÜM</th>
+            <th>DOKTOR</th>
+            <th>TARİH</th>
+            <th>SAAT</th>
+        </tr>
+        @foreach (var ktg in Model)
+        {
+    <tr>
+        <td>@ktg.ID</td>
+        <td>@ktg.AD</td>
+        <td>@ktg.SOYAD</td>
+        <td>@ktg.TC</td>
+        <td>@ktg.BÖLÜM</td>
+        <td>@ktg.DOKTOR</td>
+        <td>@ktg.TARİH</td>
+        <td>@ktg.SAAT</td>
+        <td align="center">
+            <a href="/SekreterRandavuGörüntüle/RandavuSil/@ktg.ID" class="btn btn-danger">Sil</a>
+        </td>
+    </tr>
+
+        }
+
+    </table>
+
+</div>
+

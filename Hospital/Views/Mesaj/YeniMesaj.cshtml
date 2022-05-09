@@ -8,16 +8,34 @@
     <div style="padding-left:40px;padding-top:20px">
         <label>Hasta TC</label>
         @Html.TextBoxFor(t => t.HASTA, new { @class = "form-control" })
-        <label>Konu </label>
+        <label>Tanı kodu</label>
         @Html.TextBoxFor(t => t.KONU, new { @class = "form-control" })
-        <label>MESAJ</label>
+        <label>Şikayet</label>
         @Html.TextAreaFor(t => t.MESAJ1, new { @class = "form-control" })
+        <label>ISTEKLER:</label>
+        <br />
+        <div>
+            Kan tahlili -> @Html.RadioButton("istek", "Kan tahlili")
+            MR ->  @Html.RadioButton("istek", "MR")
+            Tomografi ->  @Html.RadioButton("istek", "Tomografi")
+            Ultrason -> @Html.RadioButton("istek", "Ultrason")
+            Checkup -> @Html.RadioButton("istek", "Checkup")
+        </div>
+
 
         <div style="padding-top:10px"></div>
         <button class="btn btn-info" id="Btn1">
             Mesaj Yolla
         </button>
     </div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
 
 </form>
 

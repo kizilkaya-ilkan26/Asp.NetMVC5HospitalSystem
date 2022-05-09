@@ -23,5 +23,6 @@ namespace Hospital.Models.Entity
         public string MESAJ1 { get; set; }
         public string ISLEM { get; set; }
         public string Sonuc { get; set; }
+        public string istek { get; set; }
     }
 }

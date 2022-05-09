@@ -22,5 +22,9 @@ namespace Hospital.Models.Entity
         public string HASTA { get; set; }
         public string MAİLADRES { get; set; }
         public string HASTATC { get; set; }
+        public string tür { get; set; }
+        public string bankod { get; set; }
+        public string etken { get; set; }
+        public string ödeme { get; set; }
     }
 }

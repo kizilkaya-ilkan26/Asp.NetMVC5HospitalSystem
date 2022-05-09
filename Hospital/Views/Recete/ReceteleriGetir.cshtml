@@ -25,6 +25,52 @@
             @Html.TextBoxFor(t => t.HASTATC, new { @class = "form-control" })
             @Html.LabelFor(t => t.MAİLADRES)
             @Html.TextBoxFor(t => t.MAİLADRES, new { @class = "form-control" })
+            @Html.LabelFor(t => t.tür)
+            @Html.DropDownList("tür",
+                                          new List<SelectListItem> {
+                                          new SelectListItem {
+                                            Text="YEŞİL",
+                                            Value="YEŞİL",
+                                          },
+                                            new SelectListItem {
+                                             Text="KIRMIZI",
+                                              Value="KIRMIZI",
+
+                                             },
+                                              new SelectListItem {
+                                             Text="NORMAL",
+                                              Value="NORMAL",
+
+                                             },
+
+
+                        }, new { @class = "form-control" })
+            <span></span>
+            @Html.LabelFor(t => t.bankod)
+            @Html.TextBoxFor(t => t.bankod, new { @class = "form-control" })
+            @Html.LabelFor(t => t.etken)
+            @Html.TextBoxFor(t => t.etken, new { @class = "form-control" })
+            @Html.LabelFor(t => t.ödeme)
+            @Html.DropDownList("ödeme",
+                                           new List<SelectListItem> {
+                                           new SelectListItem {
+                                             Text="SGK",
+                                             Value="SGK",
+                                           },
+                                             new SelectListItem {
+                                              Text="BAGKUR",
+                                               Value="BAGKUR",
+
+                                              },
+                                               new SelectListItem {
+                                              Text="ÖDEME YOK",
+                                               Value="ÖDEME YOK",
+
+                                              },
+
+
+                         }, new { @class = "form-control" })
+            <span></span>
 
             <div style="padding-top:10px"></div>
             <button class="btn btn-info" id="Btn">

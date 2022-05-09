@@ -34,7 +34,6 @@ namespace Hospital.Models.Entity
         public virtual DbSet<Mesaj> Mesaj { get; set; }
         public virtual DbSet<Patient> Patient { get; set; }
         public virtual DbSet<RECETE> RECETE { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Yoklama> Yoklama { get; set; }
         public virtual DbSet<USERTIP> USERTIP { get; set; }
@@ -43,6 +42,8 @@ namespace Hospital.Models.Entity
         public virtual DbSet<BunlarıBiliyormusunuz> BunlarıBiliyormusunuz { get; set; }
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<tCalendar> tCalendar { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<SekreterRandavu> SekreterRandavu { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

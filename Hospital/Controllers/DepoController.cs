@@ -53,17 +53,24 @@ namespace Hospital.Controllers
             IlacListe depoo = db.IlacListe.Where(t => t.ID == P.ID).SingleOrDefault();
 
             depo.ID = P.ID;
-            depoo.UrunAdi = P.URUNADI;
+            depo.URUNADI = P.URUNADI;
+            depo.depotürü = P.depotürü;
             depo.URUNACIKLAMASI = depo.URUNACIKLAMASI;
+            depo.sut = P.sut;
+            depo.yanetki = P.yanetki;
+            depo.rapor = depo.rapor;
+            depo.css = P.css;
             depo.STOK = P.STOK;
+            depo.türü = P.türü;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
 
         [HttpGet]
-        public ActionResult DepoEkle()
+        public ActionResult DepoEkle(string name)
         {
+
             List<SelectListItem> deger1 = (from r in db.IlacListe.ToList()
                                            select new SelectListItem
                                            {
@@ -78,10 +85,12 @@ namespace Hospital.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult DepoEkle(DEPO P)
+        public ActionResult DepoEkle(DEPO P,string name)
         {
             db.DEPO.Add(P);
             db.SaveChanges();
+
+            ViewBag.Message = string.Format("Ürün Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
             return RedirectToAction("Index");
 
         }

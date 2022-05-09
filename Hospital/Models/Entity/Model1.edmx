@@ -42,6 +42,12 @@
           <Property Name="URUNADI" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="URUNACIKLAMASI" Type="nvarchar(max)" />
           <Property Name="STOK" Type="int" Nullable="false" />
+          <Property Name="sut" Type="varchar(max)" Nullable="false" />
+          <Property Name="css" Type="varchar(max)" Nullable="false" />
+          <Property Name="rapor" Type="varchar(max)" Nullable="false" />
+          <Property Name="türü" Type="varchar(max)" Nullable="false" />
+          <Property Name="depotürü" Type="varchar(max)" Nullable="false" />
+          <Property Name="yanetki" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="DURUM">
           <Key>
@@ -78,10 +84,11 @@
           <Property Name="GÖNDEREN" Type="varchar" MaxLength="50" />
           <Property Name="ALICI" Type="varchar" MaxLength="50" />
           <Property Name="KONU" Type="varchar" MaxLength="50" />
-          <Property Name="TARIH" Type="smalldatetime" />
+          <Property Name="TARIH" Type="datetime" />
           <Property Name="MESAJ" Type="varchar" MaxLength="250" />
           <Property Name="ISLEM" Type="varchar(max)" />
           <Property Name="Sonuc" Type="varchar(max)" />
+          <Property Name="istek" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -98,7 +105,19 @@
           <Property Name="TELNO" Type="varchar(max)" Nullable="false" />
           <Property Name="RANDAVUTARIHIGUN" Type="date" />
           <Property Name="RANDAVUTARIHISAAT" Type="time" Precision="7" />
-          <Property Name="MuayeneSonucu" Type="int" />
+          <Property Name="MuayeneSonucu" Type="int" Nullable="false" />
+          <Property Name="Cinsiyet" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedeniHali" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kangrubu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dogumyeri" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DogumTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="baba" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="anne" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresili" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresilcesi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uyruk" Type="varchar(max)" Nullable="false" />
+          <Property Name="sigorta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KayitlanmaTarihi" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="RECETE">
           <Key>
@@ -112,6 +131,23 @@
           <Property Name="HASTA" Type="varchar(max)" Nullable="false" />
           <Property Name="MAİLADRES" Type="varchar(max)" Nullable="false" />
           <Property Name="HASTATC" Type="varchar(max)" Nullable="false" />
+          <Property Name="tür" Type="varchar(max)" Nullable="false" />
+          <Property Name="bankod" Type="varchar(max)" Nullable="false" />
+          <Property Name="etken" Type="varchar(max)" Nullable="false" />
+          <Property Name="ödeme" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SekreterRandavu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar(max)" Nullable="false" />
+          <Property Name="SOYAD" Type="varchar(max)" Nullable="false" />
+          <Property Name="TC" Type="varchar(max)" Nullable="false" />
+          <Property Name="BÖLÜM" Type="varchar(max)" Nullable="false" />
+          <Property Name="DOKTOR" Type="varchar(max)" Nullable="false" />
+          <Property Name="TARİH" Type="datetime" Nullable="false" />
+          <Property Name="SAAT" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -157,6 +193,16 @@
           <Property Name="TCNO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ADRES" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="TİP" Type="tinyint" />
+          <Property Name="SicilNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResmiSicilNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DocTescilNo" Type="varchar(max)" />
+          <Property Name="DiplomaNo" Type="varchar(max)" Nullable="false" />
+          <Property Name="DiplomaTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DiplomaTescilTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DokUzmanlıkKodu" Type="varchar" MaxLength="50" />
+          <Property Name="Uyruk" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unvan" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="USERTIP">
           <Key>
@@ -216,6 +262,7 @@
           <EntitySet Name="Mesaj" EntityType="Self.Mesaj" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECETE" EntityType="Self.RECETE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SekreterRandavu" EntityType="Self.SekreterRandavu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tCalendar" EntityType="Self.tCalendar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UrunList" EntityType="Self.UrunList" Schema="dbo" store:Type="Tables" />
@@ -244,6 +291,12 @@
           <Property Name="STOK" Type="Int32" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="URUNACIKLAMASI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sut" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="css" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rapor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="türü" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="depotürü" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="yanetki" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DURUM">
           <Key>
@@ -273,10 +326,11 @@
           <Property Name="GÖNDEREN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ALICI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TARIH" Type="DateTime" Precision="0" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
           <Property Name="MESAJ1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ISLEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Sonuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="istek" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -293,7 +347,19 @@
           <Property Name="TELNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RANDAVUTARIHIGUN" Type="DateTime" Precision="0" />
           <Property Name="RANDAVUTARIHISAAT" Type="Time" Precision="7" />
-          <Property Name="MuayeneSonucu" Type="Int32" />
+          <Property Name="MuayeneSonucu" Type="Int32" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MedeniHali" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kangrubu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dogumyeri" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DogumTarihi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="baba" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anne" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresili" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresilcesi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uyruk" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sigorta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KayitlanmaTarihi" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="RECETE">
           <Key>
@@ -307,16 +373,10 @@
           <Property Name="HASTA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MAİLADRES" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="HASTATC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="tür" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bankod" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="etken" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ödeme" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -333,6 +393,16 @@
           <Property Name="TCNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TİP" Type="Byte" />
+          <Property Name="SicilNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResmiSicilNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocTescilNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DiplomaNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DiplomaTarihi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiplomaTescilTarihi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DokUzmanlıkKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Uyruk" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cinsiyet" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Unvan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Yoklama">
           <Key>
@@ -351,7 +421,6 @@
           <EntitySet Name="Mesaj" EntityType="Self.Mesaj" />
           <EntitySet Name="Patient" EntityType="Self.Patient" />
           <EntitySet Name="RECETE" EntityType="Self.RECETE" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="Yoklama" EntityType="Self.Yoklama" />
           <FunctionImport Name="sp_alterdiagram">
@@ -390,6 +459,8 @@
           <EntitySet Name="BunlarıBiliyormusunuz" EntityType="DBHospitalModel.BunlarıBiliyormusunuz" />
           <EntitySet Name="Admin" EntityType="DBHospitalModel.Admin" />
           <EntitySet Name="tCalendar" EntityType="DBHospitalModel.tCalendar" />
+          <EntitySet Name="sysdiagrams" EntityType="DBHospitalModel.sysdiagrams" />
+          <EntitySet Name="SekreterRandavu" EntityType="DBHospitalModel.SekreterRandavu" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -455,6 +526,29 @@
           <Property Name="AllDay" Type="Boolean" Nullable="false" />
           <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SekreterRandavu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SOYAD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BÖLÜM" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOKTOR" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TARİH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SAAT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -474,6 +568,12 @@
           <EntitySetMapping Name="DEPO">
             <EntityTypeMapping TypeName="DBHospitalModel.DEPO">
               <MappingFragment StoreEntitySet="DEPO">
+                <ScalarProperty Name="yanetki" ColumnName="yanetki" />
+                <ScalarProperty Name="depotürü" ColumnName="depotürü" />
+                <ScalarProperty Name="türü" ColumnName="türü" />
+                <ScalarProperty Name="rapor" ColumnName="rapor" />
+                <ScalarProperty Name="css" ColumnName="css" />
+                <ScalarProperty Name="sut" ColumnName="sut" />
                 <ScalarProperty Name="URUNACIKLAMASI" ColumnName="URUNACIKLAMASI" />
                 <ScalarProperty Name="URUNADI" ColumnName="URUNADI" />
                 <ScalarProperty Name="STOK" ColumnName="STOK" />
@@ -505,6 +605,7 @@
           <EntitySetMapping Name="Mesaj">
             <EntityTypeMapping TypeName="DBHospitalModel.Mesaj">
               <MappingFragment StoreEntitySet="Mesaj">
+                <ScalarProperty Name="istek" ColumnName="istek" />
                 <ScalarProperty Name="Sonuc" ColumnName="Sonuc" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HASTA" ColumnName="HASTA" />
@@ -520,6 +621,18 @@
           <EntitySetMapping Name="Patient">
             <EntityTypeMapping TypeName="DBHospitalModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="KayitlanmaTarihi" ColumnName="KayitlanmaTarihi" />
+                <ScalarProperty Name="sigorta" ColumnName="sigorta" />
+                <ScalarProperty Name="uyruk" ColumnName="uyruk" />
+                <ScalarProperty Name="adresilcesi" ColumnName="adresilcesi" />
+                <ScalarProperty Name="adresili" ColumnName="adresili" />
+                <ScalarProperty Name="anne" ColumnName="anne" />
+                <ScalarProperty Name="baba" ColumnName="baba" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Dogumyeri" ColumnName="Dogumyeri" />
+                <ScalarProperty Name="Kangrubu" ColumnName="Kangrubu" />
+                <ScalarProperty Name="MedeniHali" ColumnName="MedeniHali" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
@@ -538,6 +651,10 @@
           <EntitySetMapping Name="RECETE">
             <EntityTypeMapping TypeName="DBHospitalModel.RECETE">
               <MappingFragment StoreEntitySet="RECETE">
+                <ScalarProperty Name="ödeme" ColumnName="ödeme" />
+                <ScalarProperty Name="etken" ColumnName="etken" />
+                <ScalarProperty Name="bankod" ColumnName="bankod" />
+                <ScalarProperty Name="tür" ColumnName="tür" />
                 <ScalarProperty Name="HASTATC" ColumnName="HASTATC" />
                 <ScalarProperty Name="MAİLADRES" ColumnName="MAİLADRES" />
                 <ScalarProperty Name="HASTA" ColumnName="HASTA" />
@@ -549,20 +666,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBHospitalModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DBHospitalModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="Uyruk" ColumnName="Uyruk" />
+                <ScalarProperty Name="DokUzmanlıkKodu" ColumnName="DokUzmanlıkKodu" />
+                <ScalarProperty Name="DiplomaTescilTarihi" ColumnName="DiplomaTescilTarihi" />
+                <ScalarProperty Name="DiplomaTarihi" ColumnName="DiplomaTarihi" />
+                <ScalarProperty Name="DiplomaNo" ColumnName="DiplomaNo" />
+                <ScalarProperty Name="DocTescilNo" ColumnName="DocTescilNo" />
+                <ScalarProperty Name="ResmiSicilNo" ColumnName="ResmiSicilNo" />
+                <ScalarProperty Name="SicilNo" ColumnName="SicilNo" />
                 <ScalarProperty Name="TİP" ColumnName="TİP" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
@@ -667,6 +783,31 @@
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="IDCalendar" ColumnName="IDCalendar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBHospitalModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SekreterRandavu">
+            <EntityTypeMapping TypeName="DBHospitalModel.SekreterRandavu">
+              <MappingFragment StoreEntitySet="SekreterRandavu">
+                <ScalarProperty Name="SAAT" ColumnName="SAAT" />
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+                <ScalarProperty Name="DOKTOR" ColumnName="DOKTOR" />
+                <ScalarProperty Name="BÖLÜM" ColumnName="BÖLÜM" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

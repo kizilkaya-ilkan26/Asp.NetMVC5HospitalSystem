@@ -10,6 +10,8 @@
         @Html.TextBoxFor(t => t.AD, new { @class = "form-control" })
         <label>SOYAD</label>
         @Html.TextBoxFor(t => t.SOYAD, new { @class = "form-control" })
+        <label>Ünvan</label>
+        @Html.TextBoxFor(t => t.Unvan, new { @class = "form-control" })
         <label>BÖLÜM </label>
         @Html.DropDownListFor(t => t.BÖLÜM, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
         <label>YETKİ DERECESİ</label>
@@ -29,6 +31,15 @@
             Bölüm Ekle
         </button>
     </div>
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
 
 </form>
 

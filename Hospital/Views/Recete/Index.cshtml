@@ -27,25 +27,31 @@
             <th>RECETE NUMARASI</th>
             <th>HASTA BİLGİLERİ</th>
             <th>MAİL ADRESİ</th>
-            <th>HASTA TC</th>
+            <th>İlaç Türü</th>
+            <th>İlaç Bankodu</th>
+            <th>İlaç Yan etkileri</th>
+            <th>İlaç Ödeme</th>    
         </tr>
 
         @foreach (var ktg in Model)
         {
-            <tr>
-                <td>@ktg.ID</td>
-                <td>@ktg.ILAC</td>
-                <td>@ktg.TARIH</td>
-                <td>@ktg.DOKTOR</td>
-                <td>@ktg.RECETENO</td>
-                <td>@ktg.HASTA</td>
-                <td>@ktg.MAİLADRES</td>
-                <td>@ktg.HASTATC</td>
+    <tr>
+        <td>@ktg.ID</td>
+        <td>@ktg.ILAC</td>
+        <td>@ktg.TARIH</td>
+        <td>@ktg.DOKTOR</td>
+        <td>@ktg.RECETENO</td>
+        <td>@ktg.HASTA</td>
+        <td>@ktg.MAİLADRES</td>
+        <td>@ktg.tür</td>
+        <td>@ktg.bankod</td>
+        <td>@ktg.etken</td>
+        <td>@ktg.ödeme</td>
 
-                <td align="center">
-                    <a href="/Recete/ReceteleriGetir/@ktg.ID" class="btn btn-warning">Güncelle</a>
-                </td>
-            </tr>
+        <td align="center">
+            <a href="/Recete/ReceteleriGetir/@ktg.ID" class="btn btn-warning">Güncelle</a>
+        </td>
+    </tr>
         }
 
     </table>

@@ -16,6 +16,8 @@
             @Html.TextBoxFor(t => t.AD, new { @class = "form-control" })
             @Html.LabelFor(t => t.SOYAD)
             @Html.TextBoxFor(t => t.SOYAD, new { @class = "form-control" })
+            @Html.LabelFor(t => t.Unvan)
+            @Html.TextBoxFor(t => t.Unvan, new { @class = "form-control" })
             @Html.LabelFor(t => t.BÖLÜM)
             @Html.DropDownListFor(t => t.BÖLÜM, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
             @Html.LabelFor(t => t.YETKİDERECE)

@@ -36,6 +36,8 @@ namespace Hospital.Controllers
                 FormsAuthentication.SetAuthCookie(bilgiler.TCNO.ToString(), true);
                 Session["ADRES"] = bilgiler.ADRES;
                 Session["BÖLÜM"] = bilgiler.BÖLÜM;
+                Session["AD"] = bilgiler.AD;
+                Session["SOYAD"] = bilgiler.SOYAD;
                 return RedirectToAction("Index", "Doctor");
 
             }
@@ -44,6 +46,13 @@ namespace Hospital.Controllers
                 FormsAuthentication.SetAuthCookie(bilgiler.TCNO.ToString(), true);
                 Session["ADRES"] = bilgiler.ADRES;
                 return RedirectToAction("Index", "Lab");
+
+            }
+            if (bilgiler != null && bilgiler.YETKİDERECE == 4)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.TCNO.ToString(), true);
+                Session["ADRES"] = bilgiler.ADRES;
+                return RedirectToAction("Index", "Sekreter");
 
             }
             else

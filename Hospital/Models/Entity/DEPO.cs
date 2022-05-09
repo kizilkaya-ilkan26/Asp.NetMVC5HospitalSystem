@@ -18,5 +18,11 @@ namespace Hospital.Models.Entity
         public int STOK { get; set; }
         public int ID { get; set; }
         public string URUNACIKLAMASI { get; set; }
+        public string sut { get; set; }
+        public string css { get; set; }
+        public string rapor { get; set; }
+        public string türü { get; set; }
+        public string depotürü { get; set; }
+        public string yanetki { get; set; }
     }
 }

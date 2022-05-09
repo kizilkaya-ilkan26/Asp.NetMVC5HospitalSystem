@@ -7,26 +7,34 @@
 
 @using (Html.BeginForm("Kaydet", "SiteSetting", FormMethod.Post))
 {
-    <form class="u-form-group" method="post">
-        <div style="padding-left:80px;padding-top:20px">
+<form class="u-form-group" method="post">
+    <div style="padding-left:80px;padding-top:20px">
 
-            @Html.HiddenFor(t => t.ID, new { @class = "form-control" })
+        @Html.HiddenFor(t => t.ID, new { @class = "form-control" })
 
-            @Html.LabelFor(t => t.SiteAcıklama)
-            @Html.TextBoxFor(t => t.SiteAcıklama, new { @class = "form-control" })
+        @Html.LabelFor(t => t.SiteAcıklama)
+        @Html.TextBoxFor(t => t.SiteAcıklama, new { @class = "form-control" })
 
-            @Html.LabelFor(t => t.Acıklama)
-            @Html.TextBoxFor(t => t.Acıklama, new { @class = "form-control" })
+        @Html.LabelFor(t => t.Acıklama)
+        @Html.TextBoxFor(t => t.Acıklama, new { @class = "form-control" })
 
 
 
-            <div style="padding-top:10px"></div>
-            <button class="btn btn-info" id="Btn">
-                Site Ayarlarını Kaydet
-            </button>
-        </div>
+        <div style="padding-top:10px"></div>
+        <button class="btn btn-info" id="Btn">
+            Site Ayarlarını Kaydet
+        </button>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
 
-    </form>
+</form>
 }
 
 

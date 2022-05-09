@@ -21,9 +21,10 @@ namespace Hospital.Controllers
 
             return View(adresBilgiGetir);
         }
-        public ActionResult LogOut()
+        public ActionResult LogOut(string name)
         {
             FormsAuthentication.SignOut();
+            ViewBag.Message = string.Format(" Sisteme Başarılı Bir Şekilde Cıkıs Yapıldı. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
             return RedirectToAction("Index", "Login");
         }
     }

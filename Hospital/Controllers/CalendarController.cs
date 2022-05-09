@@ -29,14 +29,14 @@ namespace FullCalendar.Controllers
         }
         [HttpPost]
 
-        public ActionResult Kaydet(tCalendar p)
+        public ActionResult Kaydet(tCalendar p , string name)
         {
 
             tCalendar kayit = db.tCalendar.Where(t => t.IDCalendar == p.IDCalendar).SingleOrDefault();
             kayit.Birim = "Bilgisayar";
             db.tCalendar.Add(p);
             db.SaveChanges();
-
+            ViewBag.Message = string.Format("Randavunuz Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
             return RedirectToAction("Index");
         }
         /// <summary>

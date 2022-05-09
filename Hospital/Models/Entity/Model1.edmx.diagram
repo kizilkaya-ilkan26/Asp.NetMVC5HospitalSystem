@@ -10,17 +10,18 @@
         <EntityTypeShape EntityType="DBHospitalModel.DURUM" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBHospitalModel.DURUM2" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBHospitalModel.Mesaj" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBHospitalModel.Patient" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBHospitalModel.Patient" Width="1.5" PointX="4.625" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBHospitalModel.RECETE" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBHospitalModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="DBHospitalModel.Users" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBHospitalModel.Yoklama" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBHospitalModel.Yoklama" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBHospitalModel.USERTIP" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="DBHospitalModel.UrunList" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="DBHospitalModel.IlacListe" Width="1.5" PointX="9.375" PointY="3.75" />
         <EntityTypeShape EntityType="DBHospitalModel.BunlarıBiliyormusunuz" Width="1.5" PointX="3.375" PointY="9.75" />
         <EntityTypeShape EntityType="DBHospitalModel.Admin" Width="1.5" PointX="9.375" PointY="6.75" />
         <EntityTypeShape EntityType="DBHospitalModel.tCalendar" Width="1.5" PointX="5.625" PointY="9.875" />
+        <EntityTypeShape EntityType="DBHospitalModel.sysdiagrams" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DBHospitalModel.SekreterRandavu" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

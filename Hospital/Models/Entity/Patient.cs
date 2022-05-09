@@ -25,6 +25,18 @@ namespace Hospital.Models.Entity
         public string TELNO { get; set; }
         public Nullable<System.DateTime> RANDAVUTARIHIGUN { get; set; }
         public Nullable<System.TimeSpan> RANDAVUTARIHISAAT { get; set; }
-        public Nullable<int> MuayeneSonucu { get; set; }
+        public int MuayeneSonucu { get; set; }
+        public string Cinsiyet { get; set; }
+        public string MedeniHali { get; set; }
+        public string Kangrubu { get; set; }
+        public string Dogumyeri { get; set; }
+        public string DogumTarihi { get; set; }
+        public string baba { get; set; }
+        public string anne { get; set; }
+        public string adresili { get; set; }
+        public string adresilcesi { get; set; }
+        public string uyruk { get; set; }
+        public string sigorta { get; set; }
+        public System.DateTime KayitlanmaTarihi { get; set; }
     }
 }

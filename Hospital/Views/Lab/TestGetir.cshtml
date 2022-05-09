@@ -4,25 +4,25 @@
     Layout = "~/Views/Shared/Lab.cshtml";
 }
 
-@using (Html.BeginForm("TestDüzenle", "Lab", FormMethod.Post))
+@using (Html.BeginForm("TestDüzenle", "Lab", FormMethod.Post, new {enctype="multipart/form-data"} ))
 {
-    <form class="u-form-group" method="post">
-        <div style="padding-left:80px;padding-top:20px">
-            @Html.HiddenFor(t => t.ID, new { @class = "form-control" })
+<form class="u-form-group" method="post">
+    <div style="padding-left:80px;padding-top:20px">
+        @Html.HiddenFor(t => t.ID, new { @class = "form-control" })
 
-            @Html.LabelFor(t => t.ISLEM)
-            @Html.TextBoxFor(t => t.ISLEM, new { @class = "form-control" })
+        @Html.Label("Döküman")
+        <input type="file" name="Sonuc" />
+        <input type="submit" value="Kaydet" />
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
 
-            @Html.LabelFor(t => t.Sonuc)
-            @Html.TextAreaFor(t => t.Sonuc, new { @class = "form-control" })
-
-
-            <div style="padding-top:10px"></div>
-            <button class="btn btn-info" id="Btn">
-                Bölüm Düzenle
-            </button>
-        </div>
-
-    </form>
+</form>
 }
 

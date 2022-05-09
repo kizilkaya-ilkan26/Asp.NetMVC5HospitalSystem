@@ -23,9 +23,11 @@ namespace Hospital.Controllers
         }
 
      
-        public ActionResult LogOut()
+        public ActionResult LogOut(string name)
         {
             FormsAuthentication.SignOut();
+            ViewBag.Message = string.Format("Sistemden Başarılı Bir Şekilde Çıkış Saglandı. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
             return RedirectToAction("Index", "Login");
         }
 
@@ -43,15 +45,18 @@ namespace Hospital.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult YeniMesaj(Mesaj t)
+        public ActionResult YeniMesaj(Mesaj t,string name)
         {
 
             var adres = Session["ADRES"].ToString();
             t.GÖNDEREN = adres.ToString();
             t.TARIH = DateTime.Parse(DateTime.Now.ToShortDateString());
             t.ISLEM = "İşlem Beklemede";
+            t.Sonuc = "Admin Mesaj Yolladı";
             db.Mesaj.Add(t);
             db.SaveChanges();
+            ViewBag.Message = string.Format("Istem Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
             return View();
         }
 

@@ -11,10 +11,11 @@
         <tr>
             <th>Gönderen</th>
             <th>Hasta TC</th>
-            <th>Konu</th>
-            <th>Mesaj</th>
+            <th>Tanı kodu</th>
+            <th>Şikayet</th>
             <th>Tarih</th>
-            <th>Rapor Durum</th>
+            <th>istek</th>
+            <th>Döküman</th>
         </tr>
         @foreach (var ktg in Model)
         {
@@ -24,8 +25,9 @@
         <td>@ktg.KONU</td>
         <td>@ktg.MESAJ1</td>
         <td>@ktg.TARIH</td>
-        <td>@ktg.ISLEM</td>
-
+        <td>@ktg.istek</td>
+        <td>@ktg.Sonuc</td>
+      
         <td align="center">
             <a href="/Mesaj/MesajSil/@ktg.ID" class="btn btn-danger">Sil</a>
         </td>

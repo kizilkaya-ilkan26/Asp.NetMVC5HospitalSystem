@@ -1,0 +1,34 @@
+﻿@model Hospital.Models.Entity.Mesaj
+@{
+    ViewBag.Title = "YeniMesaj";
+    Layout = "~/Views/Shared/Lab.cshtml";
+}
+
+<form class="u-form-group" method="post">
+    <div style="padding-left:80px;padding-top:20px">
+        <label>Alıcı Mail</label>
+        @Html.TextBoxFor(t => t.ALICI, new { @class = "form-control" })
+        <label>AD | SOYAD</label>
+        @Html.TextBoxFor(t => t.HASTA, new { @class = "form-control" })
+        <label>Konu </label>
+        @Html.TextBoxFor(t => t.KONU, new { @class = "form-control" })
+        <label>MESAJ</label>
+        @Html.TextAreaFor(t => t.MESAJ1, new { @class = "form-control" })
+
+
+        <div style="padding-top:10px"></div>
+        <button class="btn btn-info" id="Btn1">
+            Mesaj Yolla
+        </button>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+
+</form>
+

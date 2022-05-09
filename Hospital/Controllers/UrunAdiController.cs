@@ -49,10 +49,12 @@ namespace Hospital.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult EkleIlac(IlacListe P)
+        public ActionResult EkleIlac(IlacListe P,string name)
         {
             db.IlacListe.Add(P);
             db.SaveChanges();
+            ViewBag.Message = string.Format("Ürün Sisteme Başarılı Bir Şekilde Eklendi. {0}.\\n Eklenme Zamanı: {1}", name, DateTime.Now.ToString());
+
             return RedirectToAction("Index");
         }
     }

@@ -1,0 +1,45 @@
+﻿@using Hospital.Models.Entity
+@model List<SekreterRandavu>
+@{
+    ViewBag.Title = "SekreterRandavuAl";
+    Layout = "~/Views/Shared/Sekreter.cshtml";
+}
+
+<div style="padding-left:80px;padding-top:20px">
+    <h2>Randavu Al</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>AD</th>
+            <th>SOYAD</th>
+            <th>TC</th>
+            <th>BÖLÜM</th>
+            <th>DOKTOR</th>
+            <th>TARİH</th>
+            <th>SAAT</th>
+        </tr>
+        @foreach (var ktg in Model)
+        {
+    <tr>
+        <td>@ktg.AD</td>
+        <td>@ktg.SOYAD</td>
+        <td>@ktg.TC</td>
+        <td>@ktg.BÖLÜM</td>
+        <td>@ktg.DOKTOR</td>
+        <td>@ktg.TARİH</td>
+        <td>@ktg.SAAT</td>
+
+        <td align="center">
+            <a href="/SekreterRandavu/RandavuSil/@ktg.ID" class="btn btn-danger">Sil</a>
+        </td>
+        <td align="center">
+            <a href="/SekreterRandavu/RandavuGetir/@ktg.ID" class="btn btn-info">Düzenle</a>
+        </td>
+    </tr>
+
+        }
+
+    </table>
+</div>
+<div style="padding-left: 80px">
+    <a href="/SekreterRandavu/RandavuAl/" class="btn btn-dark">Randavu Ekle</a>
+</div>
